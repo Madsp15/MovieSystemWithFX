@@ -19,7 +19,7 @@
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="574.0" prefWidth="514.0" BorderPane.alignment="CENTER">
+            <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="574.0" prefWidth="514.0" BorderPane.alignment="CENTER">
                <content>
                   <VBox prefHeight="900.0">
                      <opaqueInsets>
