@@ -7,10 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -38,16 +38,20 @@ public class LogInController implements Initializable {
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Movie Recommendation System 0.01 Beta");
+            stage.setTitle("Movie Recommendation System 0.5 Beta");
+            stage.setMaxWidth(800);
             stage.show();
             MovieLayoutController controller = loader.getController();
 
             controller.setModel(model);
+            Node n = (Node) actionEvent.getSource();
+            Stage stage2 = (Stage) n.getScene().getWindow();
+            stage2.close();
 
 
         } catch (IOException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load DefaultApp.fxml");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load MovieLayout.fxml");
             alert.showAndWait();
         }
 

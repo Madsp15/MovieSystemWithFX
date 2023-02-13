@@ -29,12 +29,12 @@
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label styleClass="label-big" text="Greetings   ">
+                              <Label styleClass="label-big" prefHeight="35.0" prefWidth="433.0" text="Greetings   ">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lableUser" contentDisplay="CENTER" styleClass="label-big" text="user">
+                              <Label fx:id="lableUser" contentDisplay="CENTER" styleClass="label-big" prefHeight="35.0" prefWidth="643.0" text="user" textAlignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -445,20 +445,19 @@
                <children>
                   <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="672.0">
                     <buttons>
-                        <ToggleButton fx:id="menuRandomMovies" mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0" text="Random movies">
+                        <ToggleButton fx:id="menuRandomMovies" mnemonicParsing="false" onAction="#clickRandomMovies" text="Random movies" prefHeight="29.0" prefWidth="164.0">
                            <toggleGroup>
                               <ToggleGroup fx:id="MenuGroup" />
                            </toggleGroup>
                         </ToggleButton>
-                        <ToggleButton fx:id="menuWatchAgain" mnemonicParsing="false" text="Watch again" textAlignment="CENTER" toggleGroup="$MenuGroup" />
-                        <ToggleButton fx:id="menuRecommended" mnemonicParsing="false" text="Recommended" toggleGroup="$MenuGroup" />
-                        <ToggleButton fx:id="menuDiscover" mnemonicParsing="false" text="Discover" toggleGroup="$MenuGroup" />
-                        <ToggleButton fx:id="menuHome" mnemonicParsing="false" text="Home" toggleGroup="$MenuGroup" />
+                        <ToggleButton fx:id="menuRecommended" mnemonicParsing="false" onAction="#clickRecommended" text="Recommended" toggleGroup="$MenuGroup" />
+                        <ToggleButton fx:id="menuDiscover" mnemonicParsing="false" onAction="#clickDiscover" text="Discover" toggleGroup="$MenuGroup" />
+                        <ToggleButton fx:id="menuHome" mnemonicParsing="false" onAction="#clickHome" text="Home" toggleGroup="$MenuGroup" />
                     </buttons>
                   </ButtonBar>
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                      <buttons>
-                        <ToggleButton fx:id="menuLogOut" mnemonicParsing="false" text="Log out" />
+                        <ToggleButton fx:id="menuLogOut" mnemonicParsing="false" onAction="#clickLogout" text="Log out" />
                      </buttons>
                   </ButtonBar>
                </children>
