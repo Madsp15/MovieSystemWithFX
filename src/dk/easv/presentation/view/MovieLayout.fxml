@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.MovieLayoutController">
+<AnchorPane maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@Home.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.MovieLayoutController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -29,19 +29,19 @@
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label text="Greetings   ">
+                              <Label styleClass="label-big" text="Greetings   ">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lableUser" contentDisplay="CENTER" text="user">
+                              <Label fx:id="lableUser" contentDisplay="CENTER" styleClass="label-big" text="user">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
                               <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="591.0">
                                  <children>
-                                    <MFXTextField fx:id="txtSearch" alignment="CENTER" floatMode="ABOVE" prefHeight="5.0" prefWidth="246.0" text="Search..." />
+                                    <MFXTextField fx:id="txtSearch" alignment="CENTER" floatMode="ABOVE" prefHeight="5.0" prefWidth="246.0" promptText="Search..." />
                                  </children>
                               </HBox>
                            </children>
@@ -445,7 +445,7 @@
                <children>
                   <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="672.0">
                     <buttons>
-                        <ToggleButton fx:id="menuRandomMovies" mnemonicParsing="false" text="Random movies">
+                        <ToggleButton fx:id="menuRandomMovies" mnemonicParsing="false" prefHeight="29.0" prefWidth="164.0" text="Random movies">
                            <toggleGroup>
                               <ToggleGroup fx:id="MenuGroup" />
                            </toggleGroup>
