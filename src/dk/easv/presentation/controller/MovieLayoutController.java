@@ -1,5 +1,6 @@
 package dk.easv.presentation.controller;
 
+import dk.easv.presentation.model.AppModel;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -31,5 +32,8 @@ public class MovieLayoutController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setModel(AppModel model) {
     }
 }
