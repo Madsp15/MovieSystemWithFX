@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@Home.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.MovieLayoutController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="574.0" prefWidth="514.0" BorderPane.alignment="CENTER">
+               <content>
+                  <VBox prefHeight="900.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="35.0" prefWidth="433.0" styleClass="label-big" text="Greetings   ">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lableUser" contentDisplay="CENTER" prefHeight="35.0" prefWidth="643.0" styleClass="label-big" text="user" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="591.0">
+                                 <children>
+                                    <MFXTextField fx:id="txtSearch" alignment="CENTER" floatMode="ABOVE" prefHeight="5.0" prefWidth="246.0" promptText="Search..." />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="200.0" prefWidth="800.0">
+                           <children>
+                              <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label fx:id="title1" text="Label">
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="210.0" prefWidth="784.0">
+                                       <children>
+                                          <ImageView fx:id="image1" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextArea fx:id="text1" prefHeight="179.0" prefWidth="578.0" wrapText="true" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="28.0" prefWidth="800.0">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label text="Rating:" />
+                                          <Circle fx:id="ratingOne1" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingOne2" fill="WHITE" layoutX="62.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingOne3" fill="WHITE" layoutX="86.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingOne4" fill="WHITE" layoutX="106.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingOne5" fill="WHITE" layoutX="126.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingOne6" fill="WHITE" layoutX="146.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingOne7" fill="WHITE" layoutX="166.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingOne8" fill="WHITE" layoutX="186.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingOne9" fill="WHITE" layoutX="206.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingOne10" fill="WHITE" layoutX="226.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label fx:id="title2" text="Label">
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="183.0" prefWidth="800.0">
+                                       <children>
+                                          <ImageView fx:id="image2" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextArea fx:id="text2" prefHeight="193.0" prefWidth="578.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="28.0" prefWidth="800.0">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label text="Rating:" />
+                                          <Circle fx:id="ratingTwo1" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingTwo2" fill="WHITE" layoutX="62.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingTwo3" fill="WHITE" layoutX="86.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingTwo4" fill="WHITE" layoutX="106.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingTwo5" fill="WHITE" layoutX="126.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingTwo6" fill="WHITE" layoutX="146.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingTwo7" fill="WHITE" layoutX="166.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingTwo8" fill="WHITE" layoutX="186.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingTwo9" fill="WHITE" layoutX="206.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingTwo10" fill="WHITE" layoutX="226.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="267.0" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label fx:id="title3" text="Label">
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="183.0" prefWidth="800.0">
+                                       <children>
+                                          <ImageView fx:id="image3" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextArea fx:id="text3" prefHeight="193.0" prefWidth="578.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="28.0" prefWidth="800.0">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label text="Rating:" />
+                                          <Circle fx:id="ratingThree1" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingThree2" fill="WHITE" layoutX="62.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingThree3" fill="WHITE" layoutX="86.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingThree4" fill="WHITE" layoutX="106.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingThree5" fill="WHITE" layoutX="126.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingThree6" fill="WHITE" layoutX="146.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingThree7" fill="WHITE" layoutX="166.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingThree8" fill="WHITE" layoutX="186.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingThree9" fill="WHITE" layoutX="206.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingThree10" fill="WHITE" layoutX="226.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="524.0" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label fx:id="title4" text="Label">
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="183.0" prefWidth="800.0">
+                                       <children>
+                                          <ImageView fx:id="image4" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextArea fx:id="text4" prefHeight="193.0" prefWidth="578.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="28.0" prefWidth="800.0">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label text="Rating:" />
+                                          <Circle fx:id="ratingFour1" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFour2" fill="WHITE" layoutX="62.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFour3" fill="WHITE" layoutX="86.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFour4" fill="WHITE" layoutX="106.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFour5" fill="WHITE" layoutX="126.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFour6" fill="WHITE" layoutX="146.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFour7" fill="WHITE" layoutX="166.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFour8" fill="WHITE" layoutX="186.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFour9" fill="WHITE" layoutX="206.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFour10" fill="WHITE" layoutX="226.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="780.0" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label fx:id="title5" text="Label">
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox prefHeight="183.0" prefWidth="800.0">
+                                       <children>
+                                          <ImageView fx:id="image5" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <TextArea fx:id="text5" prefHeight="193.0" prefWidth="578.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="28.0" prefWidth="800.0">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label text="Rating:" />
+                                          <Circle fx:id="ratingFive1" fill="WHITE" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFive2" fill="WHITE" layoutX="62.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFive3" fill="WHITE" layoutX="86.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFive4" fill="WHITE" layoutX="106.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFive5" fill="WHITE" layoutX="126.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFive6" fill="WHITE" layoutX="146.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFive7" fill="WHITE" layoutX="166.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFive8" fill="WHITE" layoutX="186.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFive9" fill="WHITE" layoutX="206.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                          <Circle fx:id="ratingFive10" fill="WHITE" layoutX="226.0" layoutY="20.0" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </center>
+         <top>
+            <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="672.0">
+                    <buttons>
+                        <ToggleButton fx:id="menuRandomMovies" mnemonicParsing="false" onAction="#clickRandomMovies" prefHeight="29.0" prefWidth="164.0" text="Random movies">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="MenuGroup" />
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton fx:id="menuRecommended" mnemonicParsing="false" onAction="#clickRecommended" text="Recommended" toggleGroup="$MenuGroup" />
+                        <ToggleButton fx:id="menuDiscover" mnemonicParsing="false" onAction="#clickDiscover" text="Discover" toggleGroup="$MenuGroup" />
+                        <ToggleButton fx:id="menuHome" mnemonicParsing="false" onAction="#clickHome" text="Home" toggleGroup="$MenuGroup" />
+                    </buttons>
+                  </ButtonBar>
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                     <buttons>
+                        <ToggleButton fx:id="menuLogOut" mnemonicParsing="false" onAction="#clickLogout" text="Log out" />
+                     </buttons>
+                  </ButtonBar>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

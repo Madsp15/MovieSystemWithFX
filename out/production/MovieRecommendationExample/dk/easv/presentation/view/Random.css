@@ -1,0 +1,58 @@
+.background {
+    -fx-background-color: #DE857B;
+}
+
+.label {
+    -fx-font-size: 10pt;
+    -fx-text-fill: #1D0000;
+}
+
+.label-big {
+    -fx-text-fill: transparent;
+}
+
+.menu-bar {
+    -fx-background-color: #C25252;
+}
+
+.menu-bar .label {
+    -fx-font-size: 13pt;
+    -fx-text-fill: white;
+}
+
+.mfx-text-field {
+    -fx-font-size: 10pt;
+    -fx-background-color: #9D3B3B;
+    -fx-border-radius: 20 20 20 20;
+    -fx-background-radius: 20 20 20 20;
+    -fx-text-fill: white;
+    -fx-padding: 5px;
+    -fx-prompt-text-fill: white;
+}
+
+.toggle-button {
+    -fx-font-size: 10pt;
+    -fx-text-fill: white;
+    -fx-background-color: #C25252;
+}
+
+.toggle-button:hover {
+    -fx-background-color:#9D3B3B;
+  }
+
+.toggle-button:selected {
+    -fx-background-color: #9D3B3B;
+  }
+
+.button-bar {
+    -fx-background-color: #C25252;
+}
+
+.text-area {
+   -fx-control-inner-background: transparent;
+}
+
+.scroll-pane {
+   -fx-background: #DE857B;
+   -fx-border-color: #DE857B;
+}
