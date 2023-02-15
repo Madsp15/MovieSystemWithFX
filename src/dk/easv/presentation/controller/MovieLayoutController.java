@@ -1,9 +1,5 @@
 package dk.easv.presentation.controller;
 
-import dk.easv.entities.Movie;
-import dk.easv.entities.TopMovie;
-import dk.easv.entities.User;
-import dk.easv.entities.UserSimilarity;
 import dk.easv.presentation.model.AppModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -47,12 +44,11 @@ public class MovieLayoutController implements Initializable {
 
     private AppModel model;
 
+    @FXML
+    private AnchorPane anchorPane;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
-
-
     }
 
     public void setModel(AppModel model) {
@@ -86,19 +82,39 @@ public class MovieLayoutController implements Initializable {
     }
 
     public void clickRandomMovies(ActionEvent actionEvent) {
-
+        anchorPane.getStylesheets().clear();
+        anchorPane.getStylesheets().add(
+                getClass()
+                        .getResource("/dk/easv/presentation/view/Random.css")
+                        .toExternalForm()
+        );
     }
 
     public void clickHome(ActionEvent actionEvent) {
-
+        anchorPane.getStylesheets().clear();
+        anchorPane.getStylesheets().add(
+                getClass()
+                        .getResource("/dk/easv/presentation/view/Home.css")
+                        .toExternalForm()
+        );
     }
 
     public void clickRecommended(ActionEvent actionEvent) {
-
+        anchorPane.getStylesheets().clear();
+        anchorPane.getStylesheets().add(
+                getClass()
+                        .getResource("/dk/easv/presentation/view/Recommended.css")
+                        .toExternalForm()
+        );
     }
 
     public void clickDiscover(ActionEvent actionEvent) {
-
+        anchorPane.getStylesheets().clear();
+        anchorPane.getStylesheets().add(
+                getClass()
+                        .getResource("/dk/easv/presentation/view/Discover.css")
+                        .toExternalForm()
+        );
     }
 
 

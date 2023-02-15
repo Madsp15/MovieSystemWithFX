@@ -8,8 +8,7 @@
 }
 
 .label-big {
-    -fx-font-size: 20pt;
-    -fx-text-fill: #1D012F;
+    -fx-text-fill: transparent;
 }
 
 .menu-bar {
@@ -39,6 +38,10 @@
 
 .toggle-button:hover {
     -fx-background-color:#4B1365;
+  }
+
+.toggle-button:selected {
+    -fx-background-color: #4B1365;
   }
 
 .button-bar {

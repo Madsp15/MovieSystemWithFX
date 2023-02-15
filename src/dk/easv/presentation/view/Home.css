@@ -1,5 +1,5 @@
 .background {
-    -fx-background-color: #ADB5BD;
+    -fx-background-color: #6096B4;
 }
 
 .label {
@@ -13,7 +13,7 @@
 }
 
 .menu-bar {
-    -fx-background-color: #003554;
+    -fx-background-color: #255F80;
 }
 
 .menu-bar .label {
@@ -23,7 +23,7 @@
 
 .mfx-text-field {
     -fx-font-size: 10pt;
-    -fx-background-color: #003554;
+    -fx-background-color: #133E56;
     -fx-border-radius: 20 20 20 20;
     -fx-background-radius: 20 20 20 20;
     -fx-text-fill: white;
@@ -34,15 +34,19 @@
 .toggle-button {
     -fx-font-size: 10pt;
     -fx-text-fill: white;
-    -fx-background-color: #003554;
+    -fx-background-color: #255F80;
 }
 
 .toggle-button:hover {
-    -fx-background-color:#0582CA;
+    -fx-background-color:#133E56;
+  }
+
+ .toggle-button:selected {
+    -fx-background-color: #133E56;
   }
 
 .button-bar {
-    -fx-background-color: #003554;
+    -fx-background-color: #255F80;
 }
 
 .text-area {
@@ -50,6 +54,6 @@
 }
 
 .scroll-pane {
-   -fx-background: #ADB5BD;
-   -fx-border-color: #ADB5BD;
+   -fx-background: #6096B4;
+   -fx-border-color: #6096B4;
 }

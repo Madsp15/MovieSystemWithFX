@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@Home.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.MovieLayoutController">
+<AnchorPane fx:id="anchorPane" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@Home.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.MovieLayoutController">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -29,12 +29,12 @@
                      <children>
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label styleClass="label-big" prefHeight="35.0" prefWidth="433.0" text="Greetings   ">
+                              <Label prefHeight="35.0" prefWidth="433.0" styleClass="label-big" text="Greetings   ">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lableUser" contentDisplay="CENTER" styleClass="label-big" prefHeight="35.0" prefWidth="643.0" text="user" textAlignment="CENTER">
+                              <Label fx:id="lableUser" contentDisplay="CENTER" prefHeight="35.0" prefWidth="643.0" styleClass="label-big" text="user" textAlignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -445,7 +445,7 @@
                <children>
                   <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="33.0" prefWidth="672.0">
                     <buttons>
-                        <ToggleButton fx:id="menuRandomMovies" mnemonicParsing="false" onAction="#clickRandomMovies" text="Random movies" prefHeight="29.0" prefWidth="164.0">
+                        <ToggleButton fx:id="menuRandomMovies" mnemonicParsing="false" onAction="#clickRandomMovies" prefHeight="29.0" prefWidth="164.0" text="Random movies">
                            <toggleGroup>
                               <ToggleGroup fx:id="MenuGroup" />
                            </toggleGroup>
