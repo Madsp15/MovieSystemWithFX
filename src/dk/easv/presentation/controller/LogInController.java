@@ -34,6 +34,7 @@ public class LogInController implements Initializable {
         model.loginUserFromUsername(userId.getText());
         if(model.getObsLoggedInUser()!=null){
         try {
+            model.loadData(model.getObsLoggedInUser());
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/dk/easv/presentation/view/MovieLayout.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
