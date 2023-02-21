@@ -49,7 +49,6 @@ public class LogInController implements Initializable {
             Stage stage2 = (Stage) n.getScene().getWindow();
             stage2.close();
 
-
         } catch (IOException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load MovieLayout.fxml");
