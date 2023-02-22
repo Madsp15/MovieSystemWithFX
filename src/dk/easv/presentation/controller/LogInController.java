@@ -62,8 +62,11 @@ public class LogInController implements Initializable {
         }
     }
 
-    public void signUp(ActionEvent actionEvent) {
-        System.out.println("Sign-Up");
+
+    public void clickForgot(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "There is no password");
+        alert.showAndWait();
     }
+
 
 }

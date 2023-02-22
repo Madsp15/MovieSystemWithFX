@@ -11,6 +11,10 @@
     -fx-font-size: 20pt;
     -fx-text-fill: #051923;
 }
+.label-title {
+    -fx-font-size: 25pt;
+    -fx-text-fill: #ffffff;
+}
 
 .menu-bar {
     -fx-background-color: #255F80;
@@ -29,6 +33,7 @@
     -fx-text-fill: white;
     -fx-padding: 5px;
     -fx-prompt-text-fill: white;
+
 }
 
 .toggle-button {

@@ -42,9 +42,8 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="255.0" layoutY="171.0" onAction="#clickForgot" style="-fx-font-size: 10;" styleClass="label-title" text="Forgot your password?" />
-            <Hyperlink layoutX="137.0" layoutY="171.0" onAction="#clicksignUp" style="-fx-font-size: 10;" styleClass="label-title" text="New user" />
-            <MFXButton buttonType="RAISED" layoutX="137.0" layoutY="191.0" minWidth="69.0" onAction="#logIn" prefHeight="26.0" prefWidth="225.0" rippleAnimateShadow="true" rippleColor="#00ff6f" text="Login" />
+            <Hyperlink layoutX="198.0" layoutY="195.0" onAction="#clickForgot" style="-fx-font-size: 10;" styleClass="label-title" text="Forgot your password?" />
+            <MFXButton buttonType="RAISED" layoutX="137.0" layoutY="161.0" minWidth="69.0" onAction="#logIn" prefHeight="26.0" prefWidth="225.0" rippleAnimateShadow="true" rippleColor="#00ff6f" text="Login" />
          </children>
          <effect>
             <Blend />
