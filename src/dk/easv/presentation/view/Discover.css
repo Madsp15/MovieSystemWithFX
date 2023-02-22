@@ -5,6 +5,7 @@
 .label {
     -fx-font-size: 10pt;
     -fx-text-fill: #001D08;
+    -fx-font-family: Garamond, serif;
 }
 
 .label-big {
@@ -20,16 +21,21 @@
     -fx-text-fill: white;
     -fx-padding: 5px;
     -fx-prompt-text-fill: white;
+    -fx-font-family: Georgia, serif;
 }
 
 .toggle-button {
     -fx-font-size: 10pt;
     -fx-text-fill: white;
     -fx-background-color: #2A6852;
+    -fx-font-family: Georgia, serif;
 }
 
 .toggle-button:hover {
     -fx-background-color:#174C3C;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
   }
 
 .toggle-button:selected {
@@ -42,6 +48,11 @@
 
 .text-area {
    -fx-control-inner-background: transparent;
+   -fx-font-family: Garamond, serif;
+}
+
+.text-area *.text {
+    -fx-text-alignment: center;
 }
 
 .scroll-pane {
@@ -50,5 +61,17 @@
 }
 
 .button {
-   -fx-background-color: #2A6852
+   -fx-background-color: #2A6852;
+   -fx-font-family: Georgia, serif;
+}
+
+.button:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+}
+.image-view:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
 }

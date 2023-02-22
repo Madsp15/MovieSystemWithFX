@@ -5,6 +5,7 @@
 .label {
     -fx-font-size: 10pt;
     -fx-text-fill: #051923;
+    -fx-font-family: Garamond, serif;
 }
 
 .label-big {
@@ -17,19 +18,24 @@
     -fx-background-color: #051C29;
     -fx-border-radius: 20 20 20 20;
     -fx-background-radius: 20 20 20 20;
-    -fx-text-fill: white;
+    -fx-text-fill: #858585;
     -fx-padding: 5px;
     -fx-prompt-text-fill: white;
+    -fx-font-family: Georgia, serif;
 }
 
 .toggle-button {
     -fx-font-size: 10pt;
     -fx-text-fill: #171A5E;
     -fx-background-color: #051C29;
+    -fx-font-family: Georgia, serif;
 }
 
 .toggle-button:hover {
     -fx-background-color:#001521;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
   }
 
  .toggle-button:selected {
@@ -43,6 +49,11 @@
 .text-area {
    -fx-control-inner-background: transparent;
    -fx-text-fill: #000000;
+   -fx-font-family: Garamond, serif;
+}
+
+.text-area *.text {
+    -fx-text-alignment: center;
 }
 
 .scroll-pane {
@@ -53,4 +64,17 @@
 .button {
    -fx-background-color: #051C29;
    -fx-text-fill: #000000;
+   -fx-font-family: Georgia, serif;
+}
+
+.button:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+}
+
+.image-view:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
 }

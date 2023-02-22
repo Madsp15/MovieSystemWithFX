@@ -5,15 +5,18 @@
 .label {
     -fx-font-size: 10pt;
     -fx-text-fill: #051923;
+    -fx-font-family: Garamond, serif;
 }
 
 .label-big {
     -fx-font-size: 20pt;
     -fx-text-fill: #051923;
+    -fx-font-family: Garamond, serif;
 }
 .label-title {
     -fx-font-size: 25pt;
     -fx-text-fill: #ffffff;
+    -fx-font-family: Garamond, serif;
 }
 
 .menu-bar {
@@ -33,6 +36,8 @@
     -fx-text-fill: white;
     -fx-padding: 5px;
     -fx-prompt-text-fill: white;
+    -fx-font-family: Georgia, serif;
+
 
 }
 
@@ -40,10 +45,14 @@
     -fx-font-size: 10pt;
     -fx-text-fill: white;
     -fx-background-color: #255F80;
+    -fx-font-family: Georgia, serif;
 }
 
 .toggle-button:hover {
     -fx-background-color:#133E56;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
   }
 
  .toggle-button:selected {
@@ -56,6 +65,11 @@
 
 .text-area {
    -fx-control-inner-background: transparent;
+   -fx-font-family: Garamond, serif;
+}
+
+.text-area *.text {
+    -fx-text-alignment: center;
 }
 
 .scroll-pane {
@@ -65,4 +79,17 @@
 
 .button {
    -fx-background-color: #255F80;
+   -fx-font-family: Georgia, serif;
+}
+
+.button:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+}
+
+.image-view:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
 }
