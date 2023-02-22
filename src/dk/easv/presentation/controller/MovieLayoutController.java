@@ -5,6 +5,7 @@ import dk.easv.entities.TopMovie;
 import dk.easv.entities.User;
 import dk.easv.entities.UserSimilarity;
 import dk.easv.presentation.model.AppModel;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +17,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -72,7 +72,6 @@ public class MovieLayoutController implements Initializable {
         topAvgNotSeen.addAll(model.getObsTopMovieNotSeen());
         topFromSimilar.addAll(model.getObsTopMoviesSimilarUsers());
         File path = new File("Pictures");
-        File path2 = new File("Stars");
         File[] allFiles = path.listFiles();
         for (File f: allFiles
              ) {
@@ -100,7 +99,7 @@ public class MovieLayoutController implements Initializable {
         fillOutMovies();
     }
 
-    public void setTitleImages(String menu){
+    public void setMovieViews(String menu){
         List<Movie> movies = topForUser;
         List<TopMovie> topMovies = new ArrayList<>();
         int index = 0;
@@ -129,11 +128,11 @@ public class MovieLayoutController implements Initializable {
             image4.setImage(titleImages.get(Math.abs(movies.get(pageNumber+3).getId()%10)));
             image5.setImage(titleImages.get(Math.abs(movies.get(pageNumber+4).getId()%10)));
 
-            text1.setText(descriptions.get(Math.abs(movies.get(pageNumber).getId()%10)));
-            text2.setText(descriptions.get(Math.abs(movies.get(pageNumber+1).getId()%10)));
-            text3.setText(descriptions.get(Math.abs(movies.get(pageNumber+2).getId()%10)));
-            text4.setText(descriptions.get(Math.abs(movies.get(pageNumber+3).getId()%10)));
-            text5.setText(descriptions.get(Math.abs(movies.get(pageNumber+4).getId()%10)));
+            text1.setText(descriptions.get(Math.abs(movies.get(pageNumber).getId()%9)));
+            text2.setText(descriptions.get(Math.abs(movies.get(pageNumber+1).getId()%9)));
+            text3.setText(descriptions.get(Math.abs(movies.get(pageNumber+2).getId()%9)));
+            text4.setText(descriptions.get(Math.abs(movies.get(pageNumber+3).getId()%9)));
+            text5.setText(descriptions.get(Math.abs(movies.get(pageNumber+4).getId()%9)));
 
             setStars(movies.get(pageNumber).getAverageRating(), imgRating1, imgRating2, imgRating3, imgRating4, imgRating5);
             setStars(movies.get(pageNumber+1).getAverageRating(), imgRating12, imgRating22, imgRating32, imgRating42, imgRating52);
@@ -156,11 +155,11 @@ public class MovieLayoutController implements Initializable {
             image4.setImage(titleImages.get(Math.abs(topMovies.get(3).getYear()%10)));
             image5.setImage(titleImages.get(Math.abs(topMovies.get(4).getYear()%10)));
 
-            text1.setText(descriptions.get(Math.abs(topMovies.get(0).getYear()%10)));
-            text2.setText(descriptions.get(Math.abs(topMovies.get(1).getYear()%10)));
-            text3.setText(descriptions.get(Math.abs(topMovies.get(2).getYear()%10)));
-            text4.setText(descriptions.get(Math.abs(topMovies.get(3).getYear()%10)));
-            text5.setText(descriptions.get(Math.abs(topMovies.get(4).getYear()%10)));
+            text1.setText(descriptions.get(Math.abs(topMovies.get(0).getYear()%9)));
+            text2.setText(descriptions.get(Math.abs(topMovies.get(1).getYear()%9)));
+            text3.setText(descriptions.get(Math.abs(topMovies.get(2).getYear()%9)));
+            text4.setText(descriptions.get(Math.abs(topMovies.get(3).getYear()%9)));
+            text5.setText(descriptions.get(Math.abs(topMovies.get(4).getYear()%9)));
 
             setStars(topMovies.get(pageNumber).getAverageRating(), imgRating1, imgRating2, imgRating3, imgRating4, imgRating5);
             setStars(topMovies.get(pageNumber+1).getAverageRating(), imgRating12, imgRating22, imgRating32, imgRating42, imgRating52);
@@ -176,20 +175,18 @@ public class MovieLayoutController implements Initializable {
         }
         if(index == 4){
             Random random = new Random();
-            int rd = random.nextInt((2500-500)+500);
+            int rd = random.nextInt((5500-500)+500);
             image1.setImage(titleImages.get(Math.abs(movies.get(rd).getId()%10)));
             image2.setImage(titleImages.get(Math.abs(movies.get(rd+1).getId()%10)));
             image3.setImage(titleImages.get(Math.abs(movies.get(rd+2).getId()%10)));
             image4.setImage(titleImages.get(Math.abs(movies.get(rd+3).getId()%10)));
             image5.setImage(titleImages.get(Math.abs(movies.get(rd+4).getId()%10)));
-            System.out.println(movies.size());
-            System.out.println(rd);
 
-            text1.setText(descriptions.get(Math.abs(movies.get(rd).getId()%10)));
-            text2.setText(descriptions.get(Math.abs(movies.get(rd+1).getId()%10)));
-            text3.setText(descriptions.get(Math.abs(movies.get(rd+2).getId()%10)));
-            text4.setText(descriptions.get(Math.abs(movies.get(rd+3).getId()%10)));
-            text5.setText(descriptions.get(Math.abs(movies.get(rd+4).getId()%10)));
+            text1.setText(descriptions.get(Math.abs(movies.get(rd).getId()%9)));
+            text2.setText(descriptions.get(Math.abs(movies.get(rd+1).getId()%9)));
+            text3.setText(descriptions.get(Math.abs(movies.get(rd+2).getId()%9)));
+            text4.setText(descriptions.get(Math.abs(movies.get(rd+3).getId()%9)));
+            text5.setText(descriptions.get(Math.abs(movies.get(rd+4).getId()%9)));
 
             setStars(movies.get(rd).getAverageRating(), imgRating1, imgRating2, imgRating3, imgRating4, imgRating5);
             setStars(movies.get(rd+1).getAverageRating(), imgRating12, imgRating22, imgRating32, imgRating42, imgRating52);
@@ -208,15 +205,15 @@ public class MovieLayoutController implements Initializable {
     }
     public void fillOutMovies(){
         if(menuDiscover.isSelected())
-            setTitleImages("Discover");
+            setMovieViews("Discover");
         else if (menuRecommended.isSelected())
-            setTitleImages("Recommended");
+            setMovieViews("Recommended");
         else if(menuRandomMovies.isSelected())
-            setTitleImages("Random Movies");
+            setMovieViews("Random Movies");
         else if(menuHome.isSelected())
-            setTitleImages("Home");
+            setMovieViews("Home");
         else
-            setTitleImages("Home");
+            setMovieViews("Home");
     }
     public void setStars(Double rating, ImageView star1, ImageView star2, ImageView star3, ImageView star4, ImageView star5){
         if(rating <=-4){
