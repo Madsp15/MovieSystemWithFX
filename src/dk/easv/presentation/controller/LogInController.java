@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,6 +33,11 @@ public class LogInController implements Initializable {
     public void logIn(ActionEvent actionEvent) {
         model.loadUsers();
         model.loginUserFromUsername(userId.getText());
+        if(!passwordField.getText().equals("password")){
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect Username or Password");
+            alert.showAndWait();
+            return;
+        }
         if(model.getObsLoggedInUser()!=null){
         try {
             model.loadData(model.getObsLoggedInUser());
@@ -41,6 +47,7 @@ public class LogInController implements Initializable {
             stage.setScene(new Scene(root));
             stage.setTitle("Movie Recommendation System 0.5 Beta");
             stage.setMaxWidth(800);
+            stage.initStyle(StageStyle.UTILITY);
             stage.show();
             MovieLayoutController controller = loader.getController();
 
@@ -48,7 +55,6 @@ public class LogInController implements Initializable {
             Node n = (Node) actionEvent.getSource();
             Stage stage2 = (Stage) n.getScene().getWindow();
             stage2.close();
-
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -63,8 +69,11 @@ public class LogInController implements Initializable {
         }
     }
 
-    public void signUp(ActionEvent actionEvent) {
-        System.out.println("Sign-Up");
+
+    public void clickForgot(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Your password is 'password'.");
+        alert.showAndWait();
     }
+
 
 }

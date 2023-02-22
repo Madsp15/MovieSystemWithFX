@@ -5,10 +5,7 @@ import dk.easv.entities.TopMovie;
 import dk.easv.entities.User;
 import dk.easv.entities.UserSimilarity;
 import dk.easv.presentation.model.AppModel;
-import io.github.palexdev.materialfx.controls.MFXSlider;
-import io.github.palexdev.materialfx.controls.MFXToggleButton;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,19 +16,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class MovieLayoutController implements Initializable {
@@ -42,32 +35,30 @@ public class MovieLayoutController implements Initializable {
     @FXML
     private ImageView image1,image2,image3,image4, image5;
     @FXML
-    private Circle ratingOne1,ratingOne2,ratingOne3,ratingOne4,ratingOne5,ratingOne6,ratingOne7,ratingOne8,ratingOne9,ratingOne10;
-    @FXML
-
-    private Circle ratingTwo1,ratingTwo2,ratingTwo3,ratingTwo4,ratingTwo5,ratingTwo6,ratingTwo7,ratingTwo8,ratingTwo9,ratingTwo10;
-    @FXML
-    private Circle ratingThree1,ratingThree2,ratingThree3,ratingThree4,ratingThree5,ratingThree6,ratingThree7,ratingThree8,ratingThree9,ratingThree10;
-    @FXML
-    private Circle ratingFour1,ratingFour2,ratingFour3,ratingFour4,ratingFour5,ratingFour6,ratingFour7,ratingFour8,ratingFour9,ratingFour10;
-    @FXML
-    private Circle ratingFive1,ratingFive2,ratingFive3,ratingFive4,ratingFive5,ratingFive6,ratingFive7,ratingFive8,ratingFive9,ratingFive10;
+    private ImageView imgRating1, imgRating2, imgRating3, imgRating4, imgRating5,
+                        imgRating12, imgRating22, imgRating32, imgRating42, imgRating52,
+                        imgRating13, imgRating23, imgRating33, imgRating43, imgRating53,
+                        imgRating14, imgRating24, imgRating34, imgRating44, imgRating54,
+                        imgRating15, imgRating25, imgRating35, imgRating45, imgRating55;
     @FXML
     private Label lableUser;
     @FXML
     private ToggleButton menuHome,menuRecommended,menuDiscover, menuWatchAgain,menuRandomMovies, menuLogOut;
+
     private AppModel model;
 
     private List<User> allUsers = new ArrayList<>();
     private List<UserSimilarity> similarUsers = new ArrayList<>();
     private List<Movie> topForUser = new ArrayList<>();
     private List<Movie> topAvgNotSeen = new ArrayList<>();
+    private List<Movie> randomMovies = new ArrayList<>();
     private List<TopMovie> topFromSimilar = new ArrayList<>();
-    private List<Image> images = new ArrayList<>();
+    private List<Image> titleImages = new ArrayList<>();
     private List<String> descriptions = new ArrayList<>();
     boolean isDarkModeOn = false;
 
 
+    private int pageNumber = 0;
     @FXML
     private AnchorPane anchorPane;
 
@@ -75,7 +66,6 @@ public class MovieLayoutController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         menuHome.setSelected(true);
     }
-
 
     public void setModel(AppModel model) {
         lableUser.setText(model.getObsLoggedInUser().getName() + "!");
@@ -89,7 +79,7 @@ public class MovieLayoutController implements Initializable {
         File[] allFiles = path.listFiles();
         for (File f: allFiles
              ) {
-            images.add(new Image(f.getName()));
+            titleImages.add(new Image(f.getName()));
         }
         descriptions.add("This is a movie that takes place on the planet 'Earth' in the Milky Way \n" +
                 "galaxy. There are many events in this film. The story is driven by a protagonist\n" +
@@ -113,8 +103,7 @@ public class MovieLayoutController implements Initializable {
         fillOutMovies();
     }
 
-
-    public void setImages(String menu){
+    public void setMovieViews(String menu){
         List<Movie> movies = topForUser;
         List<TopMovie> topMovies = new ArrayList<>();
         int index = 0;
@@ -136,61 +125,156 @@ public class MovieLayoutController implements Initializable {
                 index = 4;
             }
         }
-        if(index == 1||index == 2||index ==4||index == 0){
-            image1.setImage(images.get(Math.abs(movies.get(0).getId()%10)));
-            image2.setImage(images.get(Math.abs(movies.get(1).getId()%10)));
-            image3.setImage(images.get(Math.abs(movies.get(2).getId()%10)));
-            image4.setImage(images.get(Math.abs(movies.get(3).getId()%10)));
-            image5.setImage(images.get(Math.abs(movies.get(4).getId()%10)));
+        if(index == 1||index == 2|| index == 0){
+            image1.setImage(titleImages.get(Math.abs(movies.get(pageNumber).getId()%10)));
+            image2.setImage(titleImages.get(Math.abs(movies.get(pageNumber+1).getId()%10)));
+            image3.setImage(titleImages.get(Math.abs(movies.get(pageNumber+2).getId()%10)));
+            image4.setImage(titleImages.get(Math.abs(movies.get(pageNumber+3).getId()%10)));
+            image5.setImage(titleImages.get(Math.abs(movies.get(pageNumber+4).getId()%10)));
 
-            text1.setText(descriptions.get(Math.abs(movies.get(0).getId()%10)));
-            text2.setText(descriptions.get(Math.abs(movies.get(1).getId()%10)));
-            text3.setText(descriptions.get(Math.abs(movies.get(2).getId()%10)));
-            text4.setText(descriptions.get(Math.abs(movies.get(3).getId()%10)));
-            text5.setText(descriptions.get(Math.abs(movies.get(4).getId()%10)));
+            text1.setText(descriptions.get(Math.abs(movies.get(pageNumber).getId()%9)));
+            text2.setText(descriptions.get(Math.abs(movies.get(pageNumber+1).getId()%9)));
+            text3.setText(descriptions.get(Math.abs(movies.get(pageNumber+2).getId()%9)));
+            text4.setText(descriptions.get(Math.abs(movies.get(pageNumber+3).getId()%9)));
+            text5.setText(descriptions.get(Math.abs(movies.get(pageNumber+4).getId()%9)));
+
+            setStars(movies.get(pageNumber).getAverageRating(), imgRating1, imgRating2, imgRating3, imgRating4, imgRating5);
+            setStars(movies.get(pageNumber+1).getAverageRating(), imgRating12, imgRating22, imgRating32, imgRating42, imgRating52);
+            setStars(movies.get(pageNumber+2).getAverageRating(), imgRating13, imgRating23, imgRating33, imgRating43, imgRating53);
+            setStars(movies.get(pageNumber+3).getAverageRating(), imgRating14, imgRating24, imgRating34, imgRating44, imgRating54);
+            setStars(movies.get(pageNumber+4).getAverageRating(), imgRating15, imgRating25, imgRating35, imgRating45, imgRating55);
 
 
-            title1.setText(movies.get(0).getTitle());
-            title2.setText(movies.get(1).getTitle());
-            title3.setText(movies.get(2).getTitle());
-            title4.setText(movies.get(3).getTitle());
-            title5.setText(movies.get(4).getTitle());
+            title1.setText(movies.get(pageNumber).getTitle());
+            title2.setText(movies.get(pageNumber+1).getTitle());
+            title3.setText(movies.get(pageNumber+2).getTitle());
+            title4.setText(movies.get(pageNumber+3).getTitle());
+            title5.setText(movies.get(pageNumber+4).getTitle());
 
         }
         if(index == 3){
-            image1.setImage(images.get(Math.abs(topMovies.get(0).getYear()%10)));
-            image2.setImage(images.get(Math.abs(topMovies.get(1).getYear()%10)));
-            image3.setImage(images.get(Math.abs(topMovies.get(2).getYear()%10)));
-            image4.setImage(images.get(Math.abs(topMovies.get(3).getYear()%10)));
-            image5.setImage(images.get(Math.abs(topMovies.get(4).getYear()%10)));
+            image1.setImage(titleImages.get(Math.abs(topMovies.get(0).getYear()%10)));
+            image2.setImage(titleImages.get(Math.abs(topMovies.get(1).getYear()%10)));
+            image3.setImage(titleImages.get(Math.abs(topMovies.get(2).getYear()%10)));
+            image4.setImage(titleImages.get(Math.abs(topMovies.get(3).getYear()%10)));
+            image5.setImage(titleImages.get(Math.abs(topMovies.get(4).getYear()%10)));
 
-            text1.setText(descriptions.get(Math.abs(topMovies.get(0).getYear()%10)));
-            text2.setText(descriptions.get(Math.abs(topMovies.get(1).getYear()%10)));
-            text3.setText(descriptions.get(Math.abs(topMovies.get(2).getYear()%10)));
-            text4.setText(descriptions.get(Math.abs(topMovies.get(3).getYear()%10)));
-            text5.setText(descriptions.get(Math.abs(topMovies.get(4).getYear()%10)));
+            text1.setText(descriptions.get(Math.abs(topMovies.get(0).getYear()%9)));
+            text2.setText(descriptions.get(Math.abs(topMovies.get(1).getYear()%9)));
+            text3.setText(descriptions.get(Math.abs(topMovies.get(2).getYear()%9)));
+            text4.setText(descriptions.get(Math.abs(topMovies.get(3).getYear()%9)));
+            text5.setText(descriptions.get(Math.abs(topMovies.get(4).getYear()%9)));
+
+            setStars(topMovies.get(pageNumber).getAverageRating(), imgRating1, imgRating2, imgRating3, imgRating4, imgRating5);
+            setStars(topMovies.get(pageNumber+1).getAverageRating(), imgRating12, imgRating22, imgRating32, imgRating42, imgRating52);
+            setStars(topMovies.get(pageNumber+2).getAverageRating(), imgRating13, imgRating23, imgRating33, imgRating43, imgRating53);
+            setStars(topMovies.get(pageNumber+3).getAverageRating(), imgRating14, imgRating24, imgRating34, imgRating44, imgRating54);
+            setStars(topMovies.get(pageNumber+4).getAverageRating(), imgRating15, imgRating25, imgRating35, imgRating45, imgRating55);
 
             title1.setText(topMovies.get(0).getTitle());
             title2.setText(topMovies.get(1).getTitle());
             title3.setText(topMovies.get(2).getTitle());
             title4.setText(topMovies.get(3).getTitle());
             title5.setText(topMovies.get(4).getTitle());
+        }
+        if(index == 4){
+            Random random = new Random();
+            int rd = random.nextInt((5500-500)+500);
+            image1.setImage(titleImages.get(Math.abs(movies.get(rd).getId()%10)));
+            image2.setImage(titleImages.get(Math.abs(movies.get(rd+1).getId()%10)));
+            image3.setImage(titleImages.get(Math.abs(movies.get(rd+2).getId()%10)));
+            image4.setImage(titleImages.get(Math.abs(movies.get(rd+3).getId()%10)));
+            image5.setImage(titleImages.get(Math.abs(movies.get(rd+4).getId()%10)));
 
+            text1.setText(descriptions.get(Math.abs(movies.get(rd).getId()%9)));
+            text2.setText(descriptions.get(Math.abs(movies.get(rd+1).getId()%9)));
+            text3.setText(descriptions.get(Math.abs(movies.get(rd+2).getId()%9)));
+            text4.setText(descriptions.get(Math.abs(movies.get(rd+3).getId()%9)));
+            text5.setText(descriptions.get(Math.abs(movies.get(rd+4).getId()%9)));
+
+            setStars(movies.get(rd).getAverageRating(), imgRating1, imgRating2, imgRating3, imgRating4, imgRating5);
+            setStars(movies.get(rd+1).getAverageRating(), imgRating12, imgRating22, imgRating32, imgRating42, imgRating52);
+            setStars(movies.get(rd+2).getAverageRating(), imgRating13, imgRating23, imgRating33, imgRating43, imgRating53);
+            setStars(movies.get(rd+3).getAverageRating(), imgRating14, imgRating24, imgRating34, imgRating44, imgRating54);
+            setStars(movies.get(rd+4).getAverageRating(), imgRating15, imgRating25, imgRating35, imgRating45, imgRating55);
+
+
+            title1.setText(movies.get(rd).getTitle());
+            title2.setText(movies.get(rd+1).getTitle());
+            title3.setText(movies.get(rd+2).getTitle());
+            title4.setText(movies.get(rd+3).getTitle());
+            title5.setText(movies.get(rd+4).getTitle());
         }
 
     }
-
     public void fillOutMovies(){
         if(menuDiscover.isSelected())
-            setImages("Discover");
+            setMovieViews("Discover");
         else if (menuRecommended.isSelected())
-            setImages("Recommended");
+            setMovieViews("Recommended");
         else if(menuRandomMovies.isSelected())
-            setImages("Random Movies");
+            setMovieViews("Random Movies");
         else if(menuHome.isSelected())
-            setImages("Home");
+            setMovieViews("Home");
         else
-            setImages("Home");
+            setMovieViews("Home");
+    }
+    public void setStars(Double rating, ImageView star1, ImageView star2, ImageView star3, ImageView star4, ImageView star5){
+        if(rating <=-4){
+            star1.setImage(titleImages.get(11));
+            star2.setImage(titleImages.get(12));
+            star3.setImage(titleImages.get(12));
+            star4.setImage(titleImages.get(12));
+            star5.setImage(titleImages.get(12));
+        }else if(rating >-4 && rating <= -3){
+            star1.setImage(titleImages.get(10));
+            star2.setImage(titleImages.get(12));
+            star3.setImage(titleImages.get(12));
+            star4.setImage(titleImages.get(12));
+            star5.setImage(titleImages.get(12));
+        } else if (rating > -3 && rating <= -2) {
+            star1.setImage(titleImages.get(10));
+            star2.setImage(titleImages.get(11));
+            star3.setImage(titleImages.get(12));
+            star4.setImage(titleImages.get(12));
+            star5.setImage(titleImages.get(12));
+        } else if (rating > -2 && rating <= 0) {
+            star1.setImage(titleImages.get(10));
+            star2.setImage(titleImages.get(10));
+            star3.setImage(titleImages.get(12));
+            star4.setImage(titleImages.get(12));
+            star5.setImage(titleImages.get(12));
+        }else if (rating > 0 && rating <= 1) {
+            star1.setImage(titleImages.get(10));
+            star2.setImage(titleImages.get(10));
+            star3.setImage(titleImages.get(11));
+            star4.setImage(titleImages.get(12));
+            star5.setImage(titleImages.get(12));
+        }else if (rating > 1 && rating <= 2) {
+            star1.setImage(titleImages.get(10));
+            star2.setImage(titleImages.get(10));
+            star3.setImage(titleImages.get(10));
+            star4.setImage(titleImages.get(12));
+            star5.setImage(titleImages.get(12));
+        }else if (rating > 2 && rating <= 3) {
+            star1.setImage(titleImages.get(10));
+            star2.setImage(titleImages.get(10));
+            star3.setImage(titleImages.get(10));
+            star4.setImage(titleImages.get(11));
+            star5.setImage(titleImages.get(12));
+        }else if (rating > 3 && rating <= 4) {
+            star1.setImage(titleImages.get(10));
+            star2.setImage(titleImages.get(10));
+            star3.setImage(titleImages.get(10));
+            star4.setImage(titleImages.get(10));
+            star5.setImage(titleImages.get(12));
+        }else if (rating > 4 && rating <= 5) {
+            star1.setImage(titleImages.get(10));
+            star2.setImage(titleImages.get(10));
+            star3.setImage(titleImages.get(10));
+            star4.setImage(titleImages.get(10));
+            star5.setImage(titleImages.get(11));
+        }
     }
 
     public void clickLogout(ActionEvent actionEvent) {
