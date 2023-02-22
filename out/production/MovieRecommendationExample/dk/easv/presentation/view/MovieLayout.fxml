@@ -2,12 +2,14 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -34,14 +36,32 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lableUser" contentDisplay="CENTER" prefHeight="35.0" prefWidth="643.0" styleClass="label-big" text="user" textAlignment="CENTER">
+                              <Label fx:id="lableUser" contentDisplay="CENTER" prefHeight="39.0" prefWidth="511.0" styleClass="label-big" text="user" textAlignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
                               <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="591.0">
                                  <children>
-                                    <MFXTextField fx:id="txtSearch" alignment="CENTER" floatMode="ABOVE" prefHeight="5.0" prefWidth="246.0" promptText="Search..." />
+                                    <MFXTextField fx:id="txtSearch" alignment="CENTER" floatMode="ABOVE" prefHeight="26.0" prefWidth="317.0" promptText="Search..." />
+                                 </children>
+                              </HBox>
+                              <HBox minWidth="-Infinity" prefHeight="36.0" prefWidth="133.0">
+                                 <children>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" scaleZ="4.0" translateX="1.0" translateY="7.0">
+                                       <image>
+                                          <Image url="@../../../../../Pictures/sun.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" onAction="#clickSwitchMode" text="Switch Mode" translateY="5.0" />
+                                    <ImageView fitHeight="23.0" fitWidth="23.0" translateX="1.0" translateY="7.0">
+                                       <image>
+                                          <Image url="@../../../../../Pictures/moon.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </HBox>
                            </children>
@@ -65,7 +85,7 @@
                                           <TextArea fx:id="text1" prefHeight="179.0" prefWidth="578.0" wrapText="true" />
                                        </children>
                                     </HBox>
-                                    <HBox prefHeight="28.0" prefWidth="800.0">
+                                    <HBox fx:id="hBoxRating1" prefHeight="28.0" prefWidth="800.0">
                                        <VBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </VBox.margin>
@@ -121,6 +141,10 @@
                                                 <Insets right="5.0" />
                                              </HBox.margin>
                                           </Circle>
+                                          <AnchorPane fx:id="rating1" prefHeight="21.0" prefWidth="380.0">
+                                             <children>
+                                                <Label fx:id="labelRating1" layoutX="-2.0" layoutY="2.0" prefHeight="20.0" prefWidth="99.0" />
+                                             </children></AnchorPane>
                                        </children>
                                     </HBox>
                                  </children>

@@ -5,6 +5,10 @@ import dk.easv.entities.TopMovie;
 import dk.easv.entities.User;
 import dk.easv.entities.UserSimilarity;
 import dk.easv.presentation.model.AppModel;
+import io.github.palexdev.materialfx.controls.MFXSlider;
+import io.github.palexdev.materialfx.controls.MFXToggleButton;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +19,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -50,7 +56,6 @@ public class MovieLayoutController implements Initializable {
     private Label lableUser;
     @FXML
     private ToggleButton menuHome,menuRecommended,menuDiscover, menuWatchAgain,menuRandomMovies, menuLogOut;
-
     private AppModel model;
 
     private List<User> allUsers = new ArrayList<>();
@@ -60,13 +65,17 @@ public class MovieLayoutController implements Initializable {
     private List<TopMovie> topFromSimilar = new ArrayList<>();
     private List<Image> images = new ArrayList<>();
     private List<String> descriptions = new ArrayList<>();
+    boolean isDarkModeOn = false;
+
 
     @FXML
     private AnchorPane anchorPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        menuHome.setSelected(true);
     }
+
 
     public void setModel(AppModel model) {
         lableUser.setText(model.getObsLoggedInUser().getName() + "!");
@@ -103,6 +112,7 @@ public class MovieLayoutController implements Initializable {
                 "She left her old life behind her and is ready to face the future.");
         fillOutMovies();
     }
+
 
     public void setImages(String menu){
         List<Movie> movies = topForUser;
@@ -165,9 +175,11 @@ public class MovieLayoutController implements Initializable {
             title3.setText(topMovies.get(2).getTitle());
             title4.setText(topMovies.get(3).getTitle());
             title5.setText(topMovies.get(4).getTitle());
+
         }
 
     }
+
     public void fillOutMovies(){
         if(menuDiscover.isSelected())
             setImages("Discover");
@@ -203,44 +215,123 @@ public class MovieLayoutController implements Initializable {
     }
 
     public void clickRandomMovies(ActionEvent actionEvent) {
-        anchorPane.getStylesheets().clear();
-        anchorPane.getStylesheets().add(
-                getClass()
-                        .getResource("/dk/easv/presentation/view/Random.css")
-                        .toExternalForm()
-        );
+        getRandom();
         fillOutMovies();
     }
 
     public void clickHome(ActionEvent actionEvent) {
-        anchorPane.getStylesheets().clear();
-        anchorPane.getStylesheets().add(
-                getClass()
-                        .getResource("/dk/easv/presentation/view/Home.css")
-                        .toExternalForm()
-        );
+        getHome();
         fillOutMovies();
     }
 
     public void clickRecommended(ActionEvent actionEvent) {
-        anchorPane.getStylesheets().clear();
-        anchorPane.getStylesheets().add(
-                getClass()
-                        .getResource("/dk/easv/presentation/view/Recommended.css")
-                        .toExternalForm()
-        );
+        getRecommended();
         fillOutMovies();
     }
 
     public void clickDiscover(ActionEvent actionEvent) {
-        anchorPane.getStylesheets().clear();
-        anchorPane.getStylesheets().add(
-                getClass()
-                        .getResource("/dk/easv/presentation/view/Discover.css")
-                        .toExternalForm()
-        );
+        getDiscover();
         fillOutMovies();
     }
 
+    public void clickSwitchMode(ActionEvent actionEvent) {
+        if(isDarkModeOn == true){
+            isDarkModeOn = false;
+        }
+        else if (isDarkModeOn == false)
+        {
+            isDarkModeOn = true;
+        }
+        if(menuHome.isSelected())
+        {
+            getHome();
+        }
+        else if (menuRandomMovies.isSelected())
+        {
+            getRandom();
+        }
+        else if (menuDiscover.isSelected())
+        {
+            getDiscover();
+        }
+        else if (menuRecommended.isSelected())
+        {
+            getRecommended();
+        }
+    }
 
+    public void getHome()
+    {
+        if(isDarkModeOn == true){
+            anchorPane.getStylesheets().clear();
+            anchorPane.getStylesheets().add(
+                    getClass()
+                            .getResource("/dk/easv/presentation/view/DarkModeHome.css")
+                            .toExternalForm());
+        }
+        else{
+            anchorPane.getStylesheets().clear();
+            anchorPane.getStylesheets().add(
+                    getClass()
+                            .getResource("/dk/easv/presentation/view/Home.css")
+                            .toExternalForm());}
+    }
+
+    public void getRandom()
+    {
+        if(isDarkModeOn == true){
+            anchorPane.getStylesheets().clear();
+            anchorPane.getStylesheets().add(
+                    getClass()
+                            .getResource("/dk/easv/presentation/view/DarkModeRandom.css")
+                            .toExternalForm()
+            );
+        }
+        else{
+            anchorPane.getStylesheets().clear();
+            anchorPane.getStylesheets().add(
+                    getClass()
+                            .getResource("/dk/easv/presentation/view/Random.css")
+                            .toExternalForm()
+            );}
+    }
+
+    public void getDiscover()
+    {
+        if(isDarkModeOn == true)
+        {
+            anchorPane.getStylesheets().clear();
+            anchorPane.getStylesheets().add(
+                    getClass()
+                            .getResource("/dk/easv/presentation/view/DarkModeDiscover.css")
+                            .toExternalForm()
+            );
+        }
+        else{
+            anchorPane.getStylesheets().clear();
+            anchorPane.getStylesheets().add(
+                    getClass()
+                            .getResource("/dk/easv/presentation/view/Discover.css")
+                            .toExternalForm()
+            );}
+    }
+
+    public void getRecommended()
+    {
+        if(isDarkModeOn==true){
+            anchorPane.getStylesheets().clear();
+            anchorPane.getStylesheets().add(
+                    getClass()
+                            .getResource("/dk/easv/presentation/view/DarkModeRecommended.css")
+                            .toExternalForm()
+            );
+        }
+        else{
+            anchorPane.getStylesheets().clear();
+            anchorPane.getStylesheets().add(
+                    getClass()
+                            .getResource("/dk/easv/presentation/view/Recommended.css")
+                            .toExternalForm()
+            );}
+    }
 }

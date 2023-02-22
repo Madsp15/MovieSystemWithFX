@@ -1,10 +1,10 @@
 .background {
-    -fx-background-color: #DE857B;
+    -fx-background-color: #421742;
 }
 
 .label {
     -fx-font-size: 10pt;
-    -fx-text-fill: #1D0000;
+    -fx-text-fill: #000000;
 }
 
 .label-big {
@@ -13,7 +13,7 @@
 
 .mfx-text-field {
     -fx-font-size: 10pt;
-    -fx-background-color: #9D3B3B;
+    -fx-background-color: #30072C;
     -fx-border-radius: 20 20 20 20;
     -fx-background-radius: 20 20 20 20;
     -fx-text-fill: white;
@@ -23,31 +23,33 @@
 
 .toggle-button {
     -fx-font-size: 10pt;
-    -fx-text-fill: white;
-    -fx-background-color: #C25252;
+    -fx-text-fill: #000000;
+    -fx-background-color: #30072C;
 }
 
 .toggle-button:hover {
-    -fx-background-color:#9D3B3B;
+    -fx-background-color:#1E0215;
   }
 
 .toggle-button:selected {
-    -fx-background-color: #9D3B3B;
+    -fx-background-color: #1E0215;
   }
 
 .button-bar {
-    -fx-background-color: #C25252;
+    -fx-background-color: #30072C;
 }
 
 .text-area {
    -fx-control-inner-background: transparent;
+   -fx-text-fill: #000000;
 }
 
 .scroll-pane {
-   -fx-background: #DE857B;
-   -fx-border-color: #DE857B;
+   -fx-background: #421742;
+   -fx-border-color: #421742;
 }
 
 .button {
-   -fx-background-color: #C25252;
+   -fx-background-color: #30072C;
+   -fx-text-fill: #000000;
 }

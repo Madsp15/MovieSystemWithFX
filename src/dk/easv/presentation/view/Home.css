@@ -51,9 +51,14 @@
 
 .text-area {
    -fx-control-inner-background: transparent;
+   -fx-control-
 }
 
 .scroll-pane {
    -fx-background: #6096B4;
    -fx-border-color: #6096B4;
+}
+
+.button {
+   -fx-background-color: #255F80;
 }

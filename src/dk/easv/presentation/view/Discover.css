@@ -11,14 +11,6 @@
     -fx-text-fill: transparent;
 }
 
-.menu-bar {
-    -fx-background-color: #2A6852;
-}
-
-.menu-bar .label {
-    -fx-font-size: 13pt;
-    -fx-text-fill: white;
-}
 
 .mfx-text-field {
     -fx-font-size: 10pt;
@@ -55,4 +47,8 @@
 .scroll-pane {
    -fx-background: #569F7C;
    -fx-border-color: #569F7C;
+}
+
+.button {
+   -fx-background-color: #2A6852
 }
