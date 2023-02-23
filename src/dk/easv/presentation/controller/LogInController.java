@@ -47,7 +47,7 @@ public class LogInController implements Initializable {
             stage.setScene(new Scene(root));
             stage.setTitle("Movie Recommendation System 0.5 Beta");
             stage.setMaxWidth(800);
-            stage.initStyle(StageStyle.UTILITY);
+            stage.initStyle(StageStyle.DECORATED);
             stage.show();
             MovieLayoutController controller = loader.getController();
 

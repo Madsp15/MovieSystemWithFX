@@ -4,12 +4,14 @@
 
 .label {
     -fx-font-size: 10pt;
-    -fx-text-fill: #001D08;
+    -fx-text-fill: #000000;
     -fx-font-family: Garamond, serif;
 }
 
 .label-big {
-    -fx-text-fill: transparent;
+    -fx-font-size: 20pt;
+    -fx-text-fill: #000000;
+    -fx-font-family: Garamond, serif;
 }
 
 
@@ -18,15 +20,15 @@
     -fx-background-color: #174C3C;
     -fx-border-radius: 20 20 20 20;
     -fx-background-radius: 20 20 20 20;
-    -fx-text-fill: white;
+    -fx-text-fill: #000000;
     -fx-padding: 5px;
-    -fx-prompt-text-fill: white;
+    -fx-prompt-text-fill: #000000;
     -fx-font-family: Georgia, serif;
 }
 
 .toggle-button {
     -fx-font-size: 10pt;
-    -fx-text-fill: white;
+    -fx-text-fill: #000000;
     -fx-background-color: #2A6852;
     -fx-font-family: Georgia, serif;
 }

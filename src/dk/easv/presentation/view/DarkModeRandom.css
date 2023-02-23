@@ -4,12 +4,13 @@
 
 .label {
     -fx-font-size: 10pt;
-    -fx-text-fill: #000000;
+    -fx-text-fill: #ffffffff;
     -fx-font-family: Garamond, serif;
 }
 
 .label-big {
-    -fx-text-fill: transparent;
+    -fx-font-size: 20pt;
+    -fx-text-fill: #ffffffff;
 }
 
 
@@ -18,7 +19,7 @@
     -fx-background-color: #5D1D1D;
     -fx-border-radius: 20 20 20 20;
     -fx-background-radius: 20 20 20 20;
-    -fx-text-fill: #000000;
+    -fx-text-fill: #ffffffff;
     -fx-padding: 5px;
     -fx-prompt-text-fill: white;
     -fx-font-family: Georgia, serif;
@@ -26,7 +27,7 @@
 
 .toggle-button {
     -fx-font-size: 10pt;
-    -fx-text-fill: #000000;
+    -fx-text-fill: #ffffffff;
     -fx-background-color: #5D1D1D;
     -fx-font-family: Georgia, serif;
 }
@@ -48,7 +49,7 @@
 
 .text-area {
    -fx-control-inner-background: transparent;
-   -fx-text-fill: #000000;
+    -fx-text-fill: #ffffffff;
    -fx-font-family: Garamond, serif;
 }
 
@@ -63,7 +64,7 @@
 
 .button {
    -fx-background-color: #5D1D1D;
-   -fx-text-fill: #000000;
+    -fx-text-fill: #ffffffff;
    -fx-font-family: Georgia, serif;
 }
 

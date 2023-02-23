@@ -5,6 +5,7 @@ import dk.easv.entities.TopMovie;
 import dk.easv.entities.User;
 import dk.easv.entities.UserSimilarity;
 import dk.easv.presentation.model.AppModel;
+import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +34,7 @@ public class MovieLayoutController implements Initializable {
     @FXML
     private Label title1,title2,title3,title4, title5;
     @FXML
-    private ImageView image1,image2,image3,image4, image5;
+    private ImageView image1,image2,image3,image4, image5, imgMoon, imgSun;
     @FXML
     private ImageView imgRating1, imgRating2, imgRating3, imgRating4, imgRating5,
                         imgRating12, imgRating22, imgRating32, imgRating42, imgRating52,
@@ -41,7 +42,9 @@ public class MovieLayoutController implements Initializable {
                         imgRating14, imgRating24, imgRating34, imgRating44, imgRating54,
                         imgRating15, imgRating25, imgRating35, imgRating45, imgRating55;
     @FXML
-    private Label lableUser;
+    private Label labelUser;
+    @FXML
+    private MFXButton buttonNext, buttonPrevious;
     @FXML
     private ToggleButton menuHome,menuRecommended,menuDiscover, menuWatchAgain,menuRandomMovies, menuLogOut;
 
@@ -68,7 +71,7 @@ public class MovieLayoutController implements Initializable {
     }
 
     public void setModel(AppModel model) {
-        lableUser.setText(model.getObsLoggedInUser().getName() + "!");
+        labelUser.setText("Greetings" +  " " + model.getObsLoggedInUser().getName().trim() + "!");
         this.model = model;
         allUsers.addAll(model.getObsUsers());
         similarUsers.addAll(model.getObsSimilarUsers());
@@ -81,6 +84,8 @@ public class MovieLayoutController implements Initializable {
              ) {
             titleImages.add(new Image(f.getName()));
         }
+        imgMoon.setImage(titleImages.get(13));
+        imgSun.setImage(titleImages.get(14));
         descriptions.add("This is a movie that takes place on the planet 'Earth' in the Milky Way \n" +
                 "galaxy. There are many events in this film. The story is driven by a protagonist\n" +
                 "and his supporting roles. Thrill? Excite? All!");
@@ -208,14 +213,18 @@ public class MovieLayoutController implements Initializable {
 
     }
     public void fillOutMovies(){
-        if(menuDiscover.isSelected())
+        if(menuDiscover.isSelected()){
             setMovieViews("Discover");
-        else if (menuRecommended.isSelected())
+            labelUser.setText("Discover");}
+        else if (menuRecommended.isSelected()){
             setMovieViews("Recommended");
-        else if(menuRandomMovies.isSelected())
+            labelUser.setText("Recommended");}
+        else if(menuRandomMovies.isSelected()){
             setMovieViews("Random Movies");
-        else if(menuHome.isSelected())
+            labelUser.setText("Random Movies");}
+        else if(menuHome.isSelected()){
             setMovieViews("Home");
+            labelUser.setText("Greetings" +  " " + model.getObsLoggedInUser().getName().trim() + "!");}
         else
             setMovieViews("Home");
     }
@@ -310,6 +319,7 @@ public class MovieLayoutController implements Initializable {
 
     public void clickRecommended(ActionEvent actionEvent) {
         getRecommended();
+        labelUser.setText("Recommended");
         fillOutMovies();
     }
 
@@ -369,14 +379,14 @@ public class MovieLayoutController implements Initializable {
                     getClass()
                             .getResource("/dk/easv/presentation/view/DarkModeRandom.css")
                             .toExternalForm()
-            );
-        }
+            );}
         else{
             anchorPane.getStylesheets().clear();
             anchorPane.getStylesheets().add(
                     getClass()
                             .getResource("/dk/easv/presentation/view/Random.css")
                             .toExternalForm()
+
             );}
     }
 
@@ -417,5 +427,17 @@ public class MovieLayoutController implements Initializable {
                             .getResource("/dk/easv/presentation/view/Recommended.css")
                             .toExternalForm()
             );}
+    }
+
+    public void clickPrevious(ActionEvent actionEvent) {
+        if(pageNumber>0){
+            pageNumber = pageNumber-5;
+            fillOutMovies();
+        }
+    }
+
+    public void clickNext(ActionEvent actionEvent) {
+        pageNumber+=5;
+        fillOutMovies();
     }
 }

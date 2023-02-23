@@ -4,12 +4,14 @@
 
 .label {
     -fx-font-size: 10pt;
-    -fx-text-fill: #1D012F;
+    -fx-text-fill: #000000;
     -fx-font-family: Garamond, serif;
 }
 
 .label-big {
-    -fx-text-fill: transparent;
+    -fx-font-size: 20pt;
+    -fx-text-fill: #000000;
+    -fx-font-family: Garamond, serif;
 }
 
 .mfx-text-field {
@@ -17,7 +19,7 @@
     -fx-background-color: #4B1365;
     -fx-border-radius: 20 20 20 20;
     -fx-background-radius: 20 20 20 20;
-    -fx-text-fill: white;
+    -fx-text-fill: #000000;
     -fx-padding: 5px;
     -fx-prompt-text-fill: white;
     -fx-font-family: Georgia, serif;
@@ -25,7 +27,7 @@
 
 .toggle-button {
     -fx-font-size: 10pt;
-    -fx-text-fill: white;
+    -fx-text-fill: #000000;
     -fx-background-color: #765F88;
     -fx-font-family: Georgia, serif;
 }
