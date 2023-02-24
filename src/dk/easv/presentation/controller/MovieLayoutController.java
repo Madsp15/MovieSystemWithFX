@@ -88,24 +88,24 @@ public class MovieLayoutController implements Initializable {
         }
         imgMoon.setImage(titleImages.get(13));
         imgSun.setImage(titleImages.get(14));
-        descriptions.add("This is a movie that takes place on the planet 'Earth' in the Milky Way \n" +
-                "galaxy. There are many events in this film. The story is driven by a protagonist\n" +
+        descriptions.add("This is a movie that takes place on the planet 'Earth' in the Milky Way " +
+                "galaxy. There are many events in this film. The story is driven by a protagonist" +
                 "and his supporting roles. Thrill? Excite? All!");
-        descriptions.add("What's a mouse got to do to get some cheese around here? Find out\n" +
+        descriptions.add("What's a mouse got to do to get some cheese around here? Find out " +
                 "in this epic musical staring live mice from all around the world");
-        descriptions.add("Time and space, surround us all. But what if neither existed. A wrinkle in time\n" +
+        descriptions.add("Time and space, surround us all. But what if neither existed. A wrinkle in time " +
                 "and a wrinkle on your forehead as you watch this suspenseful mystery");
-        descriptions.add("Ten tangible things take themselves to the top! This thriller will knock\n" +
+        descriptions.add("Ten tangible things take themselves to the top! This thriller will knock " +
                 "your socks off as events go by with you watching with your eyes");
-        descriptions.add("In 2001, things were really taking place! A new president in charge, ready to take\n" +
+        descriptions.add("In 2001, things were really taking place! A new president in charge, ready to take " +
                 "the world by storm, but he never could've expected what would happen next");
-        descriptions.add("4 friends rent a room in the upper east side, hoping a night out on the town\n" +
+        descriptions.add("4 friends rent a room in the upper east side, hoping a night out on the town " +
                 "will help them ease there summer blues");
-        descriptions.add("Love, romance, other things, all take place at the same time in this classic\n" +
+        descriptions.add("Love, romance, other things, all take place at the same time in this classic " +
                 "from the 1980's");
-        descriptions.add("Things have been rough for animals on the farm since Nana left. How will\n" +
+        descriptions.add("Things have been rough for animals on the farm since Nana left. How will " +
                 "Odin cheer up the chicks in time for this summer's egg festival?");
-        descriptions.add("Once she moved to the big city, Becky knew there was no turning back.\n" +
+        descriptions.add("Once she moved to the big city, Becky knew there was no turning back. " +
                 "She left her old life behind her and is ready to face the future.");
         fillOutMovies();
     }
@@ -313,6 +313,7 @@ public class MovieLayoutController implements Initializable {
         pageNumber = 0;
         updatePageNumber();
         getRandom();
+        scrollPane.setVvalue(0.0);
         fillOutMovies();
     }
 
@@ -320,6 +321,7 @@ public class MovieLayoutController implements Initializable {
         pageNumber = 0;
         updatePageNumber();
         getHome();
+        scrollPane.setVvalue(0.0);
         fillOutMovies();
     }
 
@@ -328,6 +330,7 @@ public class MovieLayoutController implements Initializable {
         updatePageNumber();
         getRecommended();
         labelUser.setText("Recommended");
+        scrollPane.setVvalue(0.0);
         fillOutMovies();
     }
 
@@ -335,6 +338,7 @@ public class MovieLayoutController implements Initializable {
         pageNumber = 0;
         updatePageNumber();
         getDiscover();
+        scrollPane.setVvalue(0.0);
         fillOutMovies();
     }
 

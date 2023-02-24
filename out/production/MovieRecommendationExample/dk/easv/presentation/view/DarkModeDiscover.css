@@ -3,8 +3,14 @@
 }
 
 .label {
-    -fx-font-size: 10pt;
+    -fx-font-size: 16pt;
     -fx-text-fill: #ffffffff;
+    -fx-font-family: Garamond, serif;
+}
+
+.label-rating{
+    -fx-font-size: 12pt;
+    -fx-text-fill: #ffffff;
     -fx-font-family: Garamond, serif;
 }
 
@@ -47,14 +53,17 @@
 }
 
 .text-area {
-   -fx-control-inner-background: transparent;
+    -fx-control-inner-background: transparent;
     -fx-text-fill: #ffffffff;
-   -fx-font-family: Garamond, serif;
+    -fx-font-family: Garamond, serif;
+    -fx-border-color: #ffffff;
+    -fx-font-size: 20;
 }
 
 .text-area *.text {
-    -fx-text-alignment: center;
+    -fx-text-alignment: left;
 }
+
 
 .scroll-pane {
    -fx-background: #1C4933;
