@@ -30,6 +30,8 @@ import java.util.ResourceBundle;
 
 public class MovieLayoutController implements Initializable {
     @FXML
+    private ScrollPane scrollPane;
+    @FXML
     private TextArea text1,text2,text3,text4, text5;
     @FXML
     private Label title1,title2,title3,title4, title5;
@@ -42,7 +44,7 @@ public class MovieLayoutController implements Initializable {
                         imgRating14, imgRating24, imgRating34, imgRating44, imgRating54,
                         imgRating15, imgRating25, imgRating35, imgRating45, imgRating55;
     @FXML
-    private Label labelUser;
+    private Label labelUser, labelPageNumber;
     @FXML
     private MFXButton buttonNext, buttonPrevious;
     @FXML
@@ -308,22 +310,30 @@ public class MovieLayoutController implements Initializable {
     }
 
     public void clickRandomMovies(ActionEvent actionEvent) {
+        pageNumber = 0;
+        updatePageNumber();
         getRandom();
         fillOutMovies();
     }
 
     public void clickHome(ActionEvent actionEvent) {
+        pageNumber = 0;
+        updatePageNumber();
         getHome();
         fillOutMovies();
     }
 
     public void clickRecommended(ActionEvent actionEvent) {
+        pageNumber = 0;
+        updatePageNumber();
         getRecommended();
         labelUser.setText("Recommended");
         fillOutMovies();
     }
 
     public void clickDiscover(ActionEvent actionEvent) {
+        pageNumber = 0;
+        updatePageNumber();
         getDiscover();
         fillOutMovies();
     }
@@ -432,12 +442,19 @@ public class MovieLayoutController implements Initializable {
     public void clickPrevious(ActionEvent actionEvent) {
         if(pageNumber>0){
             pageNumber = pageNumber-5;
+            scrollPane.setVvalue(0.0);
             fillOutMovies();
+            updatePageNumber();
         }
     }
 
     public void clickNext(ActionEvent actionEvent) {
         pageNumber+=5;
+        scrollPane.setVvalue(0.0);
         fillOutMovies();
+        updatePageNumber();
+    }
+    public void updatePageNumber(){
+        labelPageNumber.setText(String.valueOf(((pageNumber/5)+1)));
     }
 }

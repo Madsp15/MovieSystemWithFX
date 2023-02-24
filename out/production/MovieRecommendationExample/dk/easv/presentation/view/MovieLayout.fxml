@@ -10,7 +10,6 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -22,7 +21,7 @@
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="574.0" prefWidth="514.0" BorderPane.alignment="CENTER">
+            <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="574.0" prefWidth="514.0" BorderPane.alignment="CENTER">
                <content>
                   <VBox prefHeight="900.0">
                      <opaqueInsets>
@@ -42,18 +41,12 @@
                                  </children>
                               </HBox>
                               <ImageView fx:id="imgSun" fitHeight="25.0" fitWidth="25.0">
-                                 <image>
-                                    <Image url="@../../../../../icons/sun.png" />
-                                 </image>
                                  <HBox.margin>
                                     <Insets left="25.0" right="5.0" />
                                  </HBox.margin>
                               </ImageView>
                               <Button mnemonicParsing="false" onAction="#clickSwitchMode" prefHeight="23.0" prefWidth="103.0" text="Switch Mode" />
                               <ImageView fx:id="imgMoon" fitHeight="23.0" fitWidth="23.0">
-                                 <image>
-                                    <Image url="@../../../../../icons/moon.png" />
-                                 </image>
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -76,7 +69,7 @@
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </HBox.margin>
                                           </ImageView>
-                                          <TextArea fx:id="text1" editable="false" prefHeight="179.0" prefWidth="578.0" wrapText="true" />
+                                          <TextArea fx:id="text1" editable="false" prefHeight="210.0" prefWidth="560.0" wrapText="true" />
                                        </children>
                                     </HBox>
                                     <HBox fx:id="hBoxRating1" prefHeight="28.0" prefWidth="800.0">
@@ -122,7 +115,7 @@
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </HBox.margin>
                                           </ImageView>
-                                          <TextArea fx:id="text2" editable="false" prefHeight="193.0" prefWidth="578.0" />
+                                          <TextArea fx:id="text2" editable="false" prefHeight="210.0" prefWidth="560.0" />
                                        </children>
                                     </HBox>
                                     <HBox prefHeight="28.0" prefWidth="800.0">
@@ -154,7 +147,7 @@
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </HBox.margin>
                                           </ImageView>
-                                          <TextArea fx:id="text3" editable="false" prefHeight="193.0" prefWidth="578.0" />
+                                          <TextArea fx:id="text3" editable="false" prefHeight="193.0" prefWidth="560.0" />
                                        </children>
                                     </HBox>
                                     <HBox prefHeight="28.0" prefWidth="800.0">
@@ -218,7 +211,7 @@
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </HBox.margin>
                                           </ImageView>
-                                          <TextArea fx:id="text5" editable="false" prefHeight="193.0" prefWidth="578.0" />
+                                          <TextArea fx:id="text5" editable="false" prefHeight="193.0" prefWidth="560.0" />
                                        </children>
                                     </HBox>
                                     <HBox prefHeight="28.0" prefWidth="800.0">
@@ -243,9 +236,14 @@
                                           <Insets left="75.0" />
                                        </HBox.margin>
                                     </MFXButton>
+                                    <Label fx:id="labelPageNumber" text="1">
+                                       <HBox.margin>
+                                          <Insets left="250.0" />
+                                       </HBox.margin>
+                                    </Label>
                                     <MFXButton fx:id="buttonNext" onAction="#clickNext" text="Next">
                                        <HBox.margin>
-                                          <Insets left="525.0" />
+                                          <Insets left="250.0" />
                                        </HBox.margin>
                                     </MFXButton>
                                  </children>
